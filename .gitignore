@@ -1,0 +1,20 @@
+# Credentials & Tokens
+.credentials.json
+*.credentials*
+mcp-needs-auth-cache.json
+
+# Session & History
+history.jsonl
+sessions/
+file-history/
+shell-snapshots/
+
+# Temporäre Dateien
+backups/
+cache/
+plugins/
+telemetry/
+tasks/
+plans/
+downloads/
+ide/

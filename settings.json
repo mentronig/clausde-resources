@@ -1,0 +1,7 @@
+{
+  "model": "opus",
+  "language": "German",
+  "autoUpdatesChannel": "latest",
+  "voiceEnabled": true,
+  "autoMemoryEnabled": true
+}

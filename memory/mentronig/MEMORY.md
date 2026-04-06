@@ -1,0 +1,7 @@
+- [Roland – Profil](user_roland.md) — Freiberufler KI-Beratung + Scrum Master, Entrepreneur KMU
+- [Agenten-Team](project_agenten_team.md) — 4 Agenten (Akquise, Kommunikation, Content, Website) seit 2026-04-03
+- [Verzeichnisstruktur](project_verzeichnisstruktur.md) — inbox/outbox-Workflow, Aufträge unter auftraege/YYYY-MM_kunde-projekt
+- [meta-system](reference_meta_system.md) — Vermittler für Freelancer-Aufträge, eigenes Profilformat (pptx)
+- [Anfragen-Workflow](project_workflow_anfrage.md) — 4-Schritte-Prozess: Ablage → Analyse → Profil → Abgleich
+- [Text-Spiegel](feedback_textspiegel.md) — Immer .md statt PDF/DOCX/PPTX lesen, spart Tokens
+- [Session 2026-04-03](project_session_2026-04-03.md) — Gesamtübersicht: Agenten, Skill, Profile, KfW-Auftrag, Regeln

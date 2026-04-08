@@ -13,6 +13,11 @@
 
 - Nutze **Sonnet** (haiku/sonnet subagents) für schnelle, einfache Aufgaben.
 - Nutze **Opus 4.6** für komplexe Architektur-Entscheidungen und anspruchsvolle Tasks.
+- <!-- TEMP bis 2026-04-22: danach diesen Block entfernen -->
+  **Modell-Verifizierung (vor jeder Aufgabe):** Kurz prüfen ob Sonnet oder Opus passt — einen Satz Begründung ausgeben, bevor mit der Aufgabe begonnen wird.
+  - Opus: komplexe Architektur, schwieriges Debugging mit unklarer Ursache, mehrstufige Refactorings, tiefes Reasoning
+  - Sonnet: Dokumentation, einfache Installationen, Config, Memory, Vault-Organisation, Erklärungen, geradlinige Code-Änderungen
+  <!-- /TEMP -->
 
 ## Skills
 
@@ -22,6 +27,7 @@
 ## Memory
 
 - **Memory ist IMMER aktiv** – in jedem Projekt, in jeder Session.
+- Lese zu Beginn jeder Session **zuerst** `~/.claude/memory/MEMORY.md` (globales Memory), dann das Projekt-Memory-Verzeichnis. <!-- TEMP bis 2026-04-22: danach diese Zeile entfernen -->
 - Prüfe zu Beginn jeder Session, ob `MEMORY.md` im Projekt-Memory-Verzeichnis existiert.
 - Falls nicht: Erstelle das Verzeichnis und eine leere `MEMORY.md` automatisch, ohne dass der User danach fragen muss.
 - Speichere relevante Erkenntnisse proaktiv in Memory – warte nicht darauf, dass der User "speichere das" sagt.

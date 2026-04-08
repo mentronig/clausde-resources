@@ -38,6 +38,7 @@ Führe ein strukturiertes Interview mit dem Projektleiter (User). Stelle die Fra
 6. **Technologie/Tools**: Welche Technologien, Frameworks, Tools werden eingesetzt?
 7. **Teamgröße-Präferenz**: Lieber ein kleines, fokussiertes Team oder ein größeres, spezialisiertes?
 8. **Besondere Anforderungen**: Gibt es besondere Qualitätsanforderungen, Deadlines, Einschränkungen?
+9. **Vault-Verknüpfung**: Soll dieses Projekt mit dem Mentronig Obsidian Vault verknüpft werden? (Empfohlen für alle aktiven Projekte — ermöglicht projektübergreifenden Kontext über den Hot Cache)
 
 **Optionale Vertiefungsfragen (je nach Projekttyp):**
 
@@ -93,6 +94,66 @@ Erstelle folgende Struktur im Projektverzeichnis:
 ├── CLAUDE.md                # Projektregeln und Konventionen
 └── docs/
     └── agenten-plan.md      # Der vollständige Agenten-Plan
+```
+
+#### Vault-Bridge (falls in Interview bejaht)
+
+**3a. Projektdatei im Vault anlegen:**
+
+Erstelle `C:/opt/Projects/obsidian-ws/Mentronig/02 Projekte/<Projektname>.md`:
+
+```markdown
+---
+tags: [projekt]
+status: aktiv
+erstellt: <HEUTE>
+workspace: <relativer-pfad-zum-projektverzeichnis>
+---
+
+# <Projektname>
+
+## Ziel
+<Projektziel aus Interview>
+
+## Status
+In Bearbeitung
+
+## Aktuelle Themen
+-
+
+## Entscheidungen
+
+| Datum | Entscheidung |
+|-------|-------------|
+
+## Nächste Schritte
+- [ ]
+
+## Workspace
+<absoluter-pfad-zum-projektverzeichnis>
+```
+
+**3b. Vault-Bridge Sektion in CLAUDE.md ergänzen:**
+
+Füge am Ende der erstellten `CLAUDE.md` hinzu:
+
+```markdown
+---
+
+## Vault-Bridge
+
+vault_path: C:/opt/Projects/obsidian-ws/Mentronig/
+hot_cache: 00 Kontext/hot.md
+projekt_datei: 02 Projekte/<Projektname>.md
+
+### Bei Session-Start
+1. Lies `C:/opt/Projects/obsidian-ws/Mentronig/00 Kontext/hot.md` für aktuellen Kontext
+2. Lies `C:/opt/Projects/obsidian-ws/Mentronig/02 Projekte/<Projektname>.md` für Projektstatus und offene Punkte
+
+### Bei Session-Ende
+1. Aktualisiere `hot.md` wenn sich etwas projektübergreifend geändert hat
+2. Aktualisiere `02 Projekte/<Projektname>.md`: Status, Entscheidungen, offene Punkte
+3. NIEMALS Vault-Dateien löschen oder überschreiben — nur ergänzen
 ```
 
 **Für jede Agenten-Datei verwende dieses Format:**

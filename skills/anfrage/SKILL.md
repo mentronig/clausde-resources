@@ -8,6 +8,14 @@ user_invocable: true
 
 Du bearbeitest eine neue Kundenanfrage aus der `inbox/`. Folge diesem Workflow Schritt für Schritt.
 
+## Schritt 0: Kontext aus dem Vault laden
+
+1. Lies den Hot Cache: `C:/opt/Projects/obsidian-ws/Mentronig/00 Kontext/hot.md`
+2. Prüfe ob für den Kunden bereits ein Profil existiert unter `C:/opt/Projects/obsidian-ws/Mentronig/03 Bereiche/Kundenbetreuung/Kunden/`
+3. Falls ja: Lies das Kundenprofil — die Auftragshistorie enthält Erkenntnisse aus früheren Anfragen (akzeptierte Stundensätze, bewährte Profil-Anpassungen, bekannte Lücken)
+4. Prüfe ob für den Vermittler ein Profil existiert unter `C:/opt/Projects/obsidian-ws/Mentronig/03 Bereiche/Kundenbetreuung/Vermittler/`
+5. Falls ja: Lies das Vermittlerprofil — enthält Template-Format, Konditionen, Erfahrungswerte
+
 ## Schritt 1: Inbox sichten und Auftrag anlegen
 
 1. Lies den Inhalt von `inbox/` und identifiziere die Anfrage-Dokumente

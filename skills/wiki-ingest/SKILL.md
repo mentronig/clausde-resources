@@ -20,7 +20,18 @@ Für jeden gefundenen Inhalt:
 
 Erstelle eine Bestandsliste: Dateiname, Typ, ungefähre Länge, erkannte Sprache.
 
-## Schritt 2: Inhalte analysieren
+## Schritt 2: Duplikat-Prüfung
+
+Bevor neue Seiten geplant werden: Prüfe ob der Inhalt der Quelldatei bereits im Wiki vorhanden ist.
+
+1. **Quelldatei-Check:** Lies `log.md` — wurde diese Datei (oder eine mit gleichem Namen) bereits ingestiert?
+2. **Inhalts-Check:** Identifiziere die Kernkonzepte der Quelle und prüfe ob diese Konzepte bereits als Wiki-Seiten existieren:
+   - Vollständiges Duplikat → Quelle überspringen, User informieren
+   - Teilweise Überlappung → bestehende Seite ergänzen statt neue erstellen
+   - Neuer Inhalt → normale Ingest-Pipeline
+3. **Ausgabe in der Vorschau:** Markiere jeden geplanten Schritt als NEU / ERGÄNZUNG / ÜBERSPRUNGEN
+
+## Schritt 3: Inhalte analysieren
 
 Für jede Quelldatei:
 1. **Kernthemen identifizieren** — Was sind die Hauptkonzepte?
@@ -28,7 +39,7 @@ Für jede Quelldatei:
 3. **Querverbindungen erkennen** — Welche Konzepte hängen zusammen? Gibt es Verbindungen zu bestehenden Wiki-Seiten?
 4. **Qualität bewerten** — Ist der Inhalt vollständig? Veraltet? Nur Stichworte?
 
-## Schritt 3: Vorschau zeigen
+## Schritt 4: Vorschau zeigen
 
 Zeige dem User eine strukturierte Vorschau:
 
@@ -54,7 +65,7 @@ Soll ich fortfahren?
 
 **Wichtig:** Nichts erstellen ohne Bestätigung des Users!
 
-## Schritt 4: Wiki-Seiten erstellen
+## Schritt 5: Wiki-Seiten erstellen
 
 Nach Bestätigung, erstelle die Wiki-Seiten:
 
@@ -146,7 +157,7 @@ original: <Dateiname der Quelldatei>
 - [[entities/Seite 2]]
 ```
 
-## Schritt 5: Index und Log aktualisieren
+## Schritt 6: Index und Log aktualisieren
 
 ### index.md
 
@@ -160,7 +171,34 @@ Füge eine neue Zeile in die Log-Tabelle ein:
 | <Datum> | Ingest | <Quelldatei> | <Anzahl> Seiten erstellt |
 ```
 
-## Schritt 6: Aufräumen
+## Schritt 7: Ingest-Regel-Verfeinerung
+
+Nach dem Ingest: Prüfe ob du Entscheidungen getroffen hast die noch nicht in der `CLAUDE.md` dokumentiert sind.
+
+1. **Neue Konventionen erkennen:** Hast du einen neuen Domänen-Ordner erstellt? Eine neue Kategorie eingeführt? Eine Entscheidung über Abgrenzung getroffen (z.B. "Tools kommen nach entities/, nicht concepts/")?
+2. **CLAUDE.md-Changelog prüfen:** Gibt es bereits einen `## Wiki-Konventionen Changelog`-Abschnitt in der Vault-CLAUDE.md?
+3. **Vorschlag ausgeben:** Falls neue Konventionen erkannt wurden:
+
+```
+## Ingest-Regel-Verfeinerung
+
+Ich habe folgende Entscheidung getroffen die noch nicht in CLAUDE.md steht:
+- Neue Konvention: <Beschreibung>
+- Beispiel aus diesem Ingest: <Konkrete Seite/Entscheidung>
+
+Soll ich das in CLAUDE.md unter "Wiki-Konventionen Changelog" dokumentieren?
+```
+
+Falls ja: Changelog-Eintrag ergänzen:
+```markdown
+## Wiki-Konventionen Changelog
+
+| Datum | Änderung | Begründung |
+|-------|---------|------------|
+| YYYY-MM-DD | <Neue Konvention> | <Warum — aus diesem Ingest abgeleitet> |
+```
+
+## Schritt 8: Aufräumen
 
 Frage den User: **"Soll ich die verarbeiteten Quelldateien aus der Inbox verschieben?"**
 

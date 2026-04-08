@@ -1,1 +1,0 @@
-- [Modellwahl prüfen](feedback_modellwahl_lernen.md) — Temporär bis 22.04.: vor jeder Aufgabe Opus/Sonnet-Empfehlung geben

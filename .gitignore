@@ -9,6 +9,9 @@ sessions/
 file-history/
 shell-snapshots/
 
+# Memory (persönlich, nicht versionieren)
+memory/
+
 # Temporäre Dateien
 backups/
 cache/

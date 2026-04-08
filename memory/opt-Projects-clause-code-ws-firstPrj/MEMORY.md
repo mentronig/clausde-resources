@@ -1,1 +1,0 @@
-- [Roland Glienke – Berufsprofil](user_roland_profile.md) — Freiberuflicher Scrum Master, AI Engineer, Firma mentronig, Schwerpunkt Banking & KI

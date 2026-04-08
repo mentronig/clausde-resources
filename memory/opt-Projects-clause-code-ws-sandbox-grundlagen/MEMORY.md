@@ -1,3 +1,0 @@
-- [HR-Agent erstellt](project_hr_agent.md) — Globaler HR-Agent für Agenten-Team-Zusammenstellung eingerichtet
-- [Session-Zusammenfassung 2026-04-03](session_2026-04-03.md) — Agenten-Grundlagen, HR-Agent, Memory-System, System-Prompt erklärt
-- [User-Profil](user_roland.md) — Wer Roland ist und wie er arbeitet

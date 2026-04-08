@@ -44,6 +44,12 @@ Finde Seiten deren `erstellt`-Datum älter als 6 Monate ist — als Hinweis, nic
 ### 2.6 Fehlende Rück-Verlinkungen
 Wenn Seite A auf Seite B verlinkt, sollte Seite B idealerweise auch auf A verweisen. Finde einseitige Links.
 
+### 2.7 Dead-End-Seiten (strukturell)
+Finde Seiten die **keine ausgehenden Wikilinks** haben.
+- Ausnahmen: `sources/`-Seiten (die verweisen oft nur auf die Quelldatei)
+- Nicht: Seiten die Links haben die zufällig kaputt sind (das deckt 2.1 ab)
+- Hinweis: Seiten ohne ausgehende Links sind strukturelle Sackgassen — inhaltliche Ursachen analysiert `/wiki-health`
+
 ## Schritt 3: Report erstellen
 
 Zeige dem User einen strukturierten Report:
@@ -77,6 +83,10 @@ Zeige dem User einen strukturierten Report:
 - `concepts/A.md` → `concepts/B.md` (B verlinkt nicht zurück)
 - ...
 
+### Dead-End-Seiten (<N>)
+- `concepts/XY.md` — keine ausgehenden Wikilinks
+- ...
+
 ### Hinweise (nicht kritisch)
 - `sources/Alt.md` — erstellt vor 8 Monaten, evtl. prüfen
 - ...
@@ -90,6 +100,7 @@ Zeige dem User einen strukturierten Report:
 - Index aktualisieren
 - Frontmatter ergänzen
 - Rück-Verlinkungen einfügen
+- Dead-End-Seiten: ausgehende Links zu verwandten Konzepten vorschlagen (inhaltliche Auswahl durch `/wiki-health`)
 
 Frage bei jedem Problemtyp separat: "Soll ich das beheben?"
 

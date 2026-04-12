@@ -27,8 +27,9 @@ Du bearbeitest eine neue Kundenanfrage aus der `inbox/`. Folge diesem Workflow S
    ├── angebot/
    └── analyse/
    ```
-4. Verschiebe die Dateien aus `inbox/` nach `anfrage/`
-5. **Text-Spiegel erstellen:** Für jedes Binärdokument (PDF, DOCX, PPTX) eine kompakte `.md`-Version im selben Verzeichnis erstellen. Ab hier nur noch die .md-Version lesen.
+4. Verschiebe die Originaldatei aus dem Vault-Inbox (`C:/opt/Projects/obsidian-ws/Mentronig/01 Inbox/Anfragen/`) nach `C:/opt/Projects/obsidian-ws/Mentronig/08 Speicher/Anfragen/` (Verzeichnis anlegen falls nicht vorhanden)
+5. Kopiere den Inhalt in `anfrage/` des Auftragsverzeichnisses als .md-Datei
+6. **Text-Spiegel erstellen:** Für jedes Binärdokument (PDF, DOCX, PPTX) eine kompakte `.md`-Version im selben Verzeichnis erstellen. Ab hier nur noch die .md-Version lesen.
 
 ## Schritt 2: Anfrage analysieren
 
@@ -40,6 +41,18 @@ Du bearbeitest eine neue Kundenanfrage aus der `inbox/`. Folge diesem Workflow S
    - Bewertungskriterien
    - Passungsgrad (Stärken, Lücken, Empfehlung)
 3. **Bei Annahmen über Rolands Qualifikationen → nachfragen, nicht raten**
+
+## Schritt 2b: Scoring (Auftrags-Ops Integration)
+
+Nach der Anfrage-Analyse: Führe automatisch ein Scoring nach dem Auftrags-Ops-Schema durch.
+
+1. Lies die Scoring-Referenz: `~/.claude/skills/auftrags-ops/references/_shared.md`
+2. Lies das Profil-Kompakt: `~/.claude/skills/auftrags-ops/references/_profile.md`
+3. Bewerte die Anfrage nach den 6 Dimensionen (Rollenpassung, Kommerz, Kundenfit, Logistik, Red Flags, Strategischer Wert)
+4. Füge das Scoring-Ergebnis als Abschnitt `## Scoring` am Ende der `analyse/anfrage-analyse.md` ein
+5. Aktualisiere `pipeline/tracker.md` mit dem neuen Eintrag
+
+Das Scoring gibt Roland eine sofortige Entscheidungsgrundlage, bevor in die Profilerstellung investiert wird. Bei Score D oder F: Roland fragen ob er trotzdem fortfahren möchte.
 
 ## Schritt 3: Kurzprofil erstellen
 

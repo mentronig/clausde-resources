@@ -8,6 +8,44 @@ user_invocable: true
 
 Du verarbeitest Rohdaten aus der Inbox und erstellst daraus vernetzte Wiki-Seiten in `09 Wiki/`.
 
+---
+
+## Schritt 0: Gate-Check (vor allem anderen)
+
+Bevor irgendein Inhalt analysiert oder vorbereitet wird, durchläuft jede Quelle den Gate-Check.
+
+Beantworte für jede Quelldatei diese 4 Fragen — **kein Weiterrücken ohne Antwort**:
+
+```
+Gate-Check: [Quelltitel / Dateiname]
+
+1. Nutzung      Werde ich dieses Wissen in den nächsten 6 Monaten konkret anwenden?
+2. Originalität Bringt das einen Aspekt den noch nirgends im Wiki steht?
+3. Verdichtung  Könnte das als 3 Bullets auf einer bestehenden Seite stehen?
+4. Lebensdauer  Ist das in 12 Monaten noch relevant?
+
+Urteil: ACCEPT | UPDATE | REJECT
+```
+
+**Urteile:**
+- **ACCEPT** — neue Seite(n) anlegen. Weiter mit Schritt 1.
+- **UPDATE** — bestehende Seite ergänzen. Schritt 1 überspringen, direkt zur Seite navigieren und ergänzen.
+- **REJECT** — nicht Wiki-würdig. Ingest endet hier. Kurze Begründung ausgeben. Quelldatei ggf. archivieren.
+
+**Lifespan-Entscheidung bei ACCEPT:**
+
+Jede neue Seite bekommt zwingend ein `lifespan`-Feld. Lege es im Gate fest:
+
+| Frage 4 | Lifespan |
+|---------|----------|
+| Dauerhaft relevant (Konzept, Methode) | `lifespan: evergreen` |
+| Zeitgebunden (Tool, Trend, Version) | `lifespan: temporal:YYYY-MM` (geschätztes Ablaufdatum) |
+| Nur für ein aktives Projekt relevant | `lifespan: project:<name>` |
+
+**Default ist REJECT** — nicht "Ist das interessant?" sondern "Ist das nützlich genug um Platz zu verdienen?"
+
+---
+
 ## Schritt 1: Rohdaten lesen
 
 Lies die Dateien aus `01 Inbox/onenote-import/` (oder einem vom User angegebenen Pfad).
@@ -95,6 +133,7 @@ Beim Ingest: Identifiziere die Domäne der Quellinhalte. Falls der Unterordner n
 tags: [wiki, concept, <thema>]
 erstellt: <datum>
 quellen: ["<quelldatei>"]
+lifespan: <evergreen | temporal:YYYY-MM | project:name>
 ---
 
 # <Konzeptname>

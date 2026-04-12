@@ -28,6 +28,7 @@
 
 - **Memory ist IMMER aktiv** – in jedem Projekt, in jeder Session.
 - Lese zu Beginn jeder Session **zuerst** `~/.claude/memory/MEMORY.md` (globales Memory), dann das Projekt-Memory-Verzeichnis. <!-- TEMP bis 2026-04-22: danach diese Zeile entfernen -->
+- Lese danach immer `C:\opt\Projects\obsidian-ws\Mentronig\00 Kontext\hot.md` — das ist der Vault-Hot-Cache mit dem projektübergreifenden Zustand (offene Fäden, nächste Schritte).
 - Prüfe zu Beginn jeder Session, ob `MEMORY.md` im Projekt-Memory-Verzeichnis existiert.
 - Falls nicht: Erstelle das Verzeichnis und eine leere `MEMORY.md` automatisch, ohne dass der User danach fragen muss.
 - Speichere relevante Erkenntnisse proaktiv in Memory – warte nicht darauf, dass der User "speichere das" sagt.
@@ -44,4 +45,26 @@
 
 - Standard-Modell für Audio-Transkription: **mlx-whisper** mit `mlx-community/whisper-large-v3-turbo`.
 - Immer `language="de"` setzen bei deutschsprachigen Inhalten.
+
+## Web-Scraping Fallback
+
+Beim Abrufen von Webseiten gilt diese Reihenfolge:
+
+1. **WebFetch** — immer zuerst versuchen (kostenlos, kein Limit)
+2. **Firecrawl MCP** (`mcp__firecrawl__firecrawl_scrape`) — Fallback wenn:
+   - WebFetch liefert leere, unvollständige oder unbrauchbare Ergebnisse
+   - Seite erfordert JavaScript-Rendering (SPA, dynamische Inhalte)
+   - WebFetch landet auf einer Login-Seite statt dem Zielinhalt
+   - Bessere Markdown-Qualität explizit benötigt wird
+   - **Beim Wechsel immer kurz hinweisen:** *„WebFetch hat kein brauchbares Ergebnis geliefert — wechsle zu Firecrawl."*
+
+**Wenn Firecrawl nicht verfügbar ist** (Tool nicht in der Session geladen):
+- Weise den User darauf hin: *„Firecrawl MCP ist in dieser Session nicht verfügbar."*
+- Lies den API-Key aus der Windows-Systemvariablen und registriere Firecrawl:
+  ```bash
+  claude mcp add firecrawl -e FIRECRAWL_API_KEY=$env:FIRECRAWL_API_KEY -- npx -y firecrawl-mcp
+  ```
+- Der API-Key ist in der Windows-Systemvariablen `FIRECRAWL_API_KEY` hinterlegt — nicht manuell eingeben.
+- Falls die Variable nicht gesetzt ist: User darauf hinweisen, den Key unter https://firecrawl.dev zu holen und als Windows-Systemvariable `FIRECRAWL_API_KEY` zu setzen.
+- Fahre mit WebFetch fort, solange Firecrawl nicht verfügbar ist.
 

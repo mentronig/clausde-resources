@@ -34,9 +34,11 @@ Vergleiche `index.md` mit den tatsächlich existierenden Dateien:
 
 ### 2.4 Frontmatter-Konsistenz
 Prüfe ob alle Wiki-Seiten die erforderlichen Frontmatter-Felder haben:
-- Konzepte: `tags` (muss `wiki` und `concept` enthalten), `erstellt`, `quellen`
-- Entitäten: `tags` (muss `wiki` und `entity` enthalten), `erstellt`, `typ`
+- Konzepte: `tags` (muss `wiki` und `concept` enthalten), `erstellt`, `quellen`, `lifespan`
+- Entitäten: `tags` (muss `wiki` und `entity` enthalten), `erstellt`, `typ`, `lifespan`
 - Quellen: `tags` (muss `wiki` und `source` enthalten), `erstellt`, `original`
+
+**Lifespan-Werte:** Gültig sind `evergreen`, `temporal:YYYY-MM`, `project:<name>`. Fehlendes oder ungültiges `lifespan`-Feld ist ein **Fehler** (nicht nur Hinweis) — die Seite wurde vermutlich direkt abgelegt ohne Gate-Check.
 
 ### 2.5 Veraltete Inhalte
 Finde Seiten deren `erstellt`-Datum älter als 6 Monate ist — als Hinweis, nicht als Fehler.
@@ -78,6 +80,11 @@ Zeige dem User einen strukturierten Report:
 ### Frontmatter-Probleme (<N>)
 - `concepts/XY.md` — fehlt: `quellen`
 - ...
+
+### Gate-Bypässe — kein lifespan-Tag (<N>) ⚠️
+- `concepts/XY.md` — kein `lifespan`-Feld — vermutlich direkt abgelegt, Gate-Check ausstehend
+- ...
+  → Empfehlung: Gate-Check nachträglich durchführen oder `lifespan: evergreen` setzen falls bewusst permanent
 
 ### Fehlende Rück-Verlinkungen (<N>)
 - `concepts/A.md` → `concepts/B.md` (B verlinkt nicht zurück)
